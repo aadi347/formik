@@ -1,62 +1,96 @@
-import React from 'react'
+import React from 'react';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 
-const Form = () => {
-    return (
-        <div>
-          
-<div className="flex flex-col items-center justify-center h-screen dark">
-  <div className="w-full max-w-md bg-gray-800 rounded-lg shadow-2xl p-6">
-    <h2 className="text-2xl font-bold text-gray-200 mb-4">Contact Form</h2>
+const SocialForm = () => {
+  return (
+    <Formik
+      initialValues={{
+        facebook: '',
+        instagram: '',
+        linkedin: '',
+        twitter: '',
+        website: '',
+        moto: '',
+        about: '',
+      }}
+      onSubmit={(values) => {
+        console.log('Form Submitted:', values);
+      }}
+    >
+      <Form className="flex flex-col items-center justify-center h-screen dark">
+        <div className="w-full max-w-md bg-gray-800 rounded-3xl shadow-2xl p-6">
 
-    <form className="flex flex-wrap">
-      <input
-        type="text"
-        className="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] mr-[2%]"
-        placeholder="Full Name"
-      />
-      <input
-        type="email"
-        className="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] ml-[2%]"
-        placeholder="Email"
-      />
-      <input
-        type="number"
-        className="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] mr-[2%]"
-        placeholder="Phone Number"
-      />
-      <input
-        type="text"
-        className="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] ml-[2%]"
-        placeholder="Company Name"
-      />
-      <input
-        type="text"
-        className="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] mr-[2%]"
-        placeholder="Job Title"
-      />
-      <input
-        type="date"
-        className="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150 w-full md:w-[48%] ml-[2%]"
-        placeholder="Date of Birth"
-      />
-      <textarea
-        name="message"
-        className="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-auto md:mb-auto md:w-full md:h-auto md:min-h-[100px] md:max-h-[100px] md:flex-grow md:flex-shrink md:flex-auto focus:bg-gray-md:focus:outline-none:focus:ring-blue-md:focus:border-transparent transition ease-in-out duration-fastest"
-        placeholder="Message"
-      ></textarea>
+          <label className="text-white px-5" htmlFor="facebook">Facebook</label>
+          <Field
+            type="text"
+            name="facebook"
+            id="facebook"
+            className="rounded w-full p-2 mb-4"
+          />
+          <ErrorMessage name="facebook" component="div" className="text-red-500" />
 
-      <button
-        type="submit"
-        className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150"
-      >
-        Submit
-      </button>
-    </form>
-  </div>
-</div>
+          <label className="text-white px-5" htmlFor="instagram">Instagram</label>
+          <Field
+            type="text"
+            name="instagram"
+            id="instagram"
+            className="rounded w-full p-2 mb-4"
+          />
+          <ErrorMessage name="instagram" component="div" className="text-red-500" />
 
+          <label className="text-white px-5" htmlFor="linkedin">LinkedIn</label>
+          <Field
+            type="text"
+            name="linkedin"
+            id="linkedin"
+            className="rounded w-full p-2 mb-4"
+          />
+          <ErrorMessage name="linkedin" component="div" className="text-red-500" />
+
+          <label className="text-white px-5" htmlFor="twitter">Twitter</label>
+          <Field
+            type="text"
+            name="twitter"
+            id="twitter"
+            className="rounded w-full p-2 mb-4"
+          />
+          <ErrorMessage name="twitter" component="div" className="text-red-500" />
+
+          <label className="text-white px-5" htmlFor="website">Website</label>
+          <Field
+            type="text"
+            name="website"
+            id="website"
+            className="rounded w-full p-2 mb-4"
+          />
+          <ErrorMessage name="website" component="div" className="text-red-500" />
+
+          <label className="text-white px-5" htmlFor="moto">Moto</label>
+          <Field
+            type="text"
+            name="moto"
+            id="moto"
+            className="rounded w-full p-2 mb-4"
+          />
+          <ErrorMessage name="moto" component="div" className="text-red-500" />
+
+          <label className="text-white px-5" htmlFor="about">About</label>
+          <Field
+            as="textarea"
+            name="about"
+            id="about"
+            className="rounded w-full p-2 mb-4"
+            rows="4"
+          />
+          <ErrorMessage name="about" component="div" className="text-red-500" />
+
+          <button type="submit" className="bg-blue-500 text-white p-2 rounded mt-4">
+            Submit
+          </button>
         </div>
-    )
-}
+      </Form>
+    </Formik>
+  );
+};
 
-export default Form
+export default SocialForm;

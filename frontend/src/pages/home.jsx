@@ -1,10 +1,10 @@
 import React from 'react'
-import Form from './form'
+import LogoForm from './form'
 
 const home = () => {
     return (
         <div>
-            <Form />
+            <LogoForm />
         </div>
     )
 }
