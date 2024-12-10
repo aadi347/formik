@@ -21,7 +21,7 @@ const UpdateSocialMediaURL = () => {
         setTwitterURL(response.data.twitterURL);
         setLinkedinURL(response.data.linkedinURL);
       } catch (error) {
-        console.error("Error getting URLs:", error);
+        console.error("Error getting URLs:");
       }
     };
 
